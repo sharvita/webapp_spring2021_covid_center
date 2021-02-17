@@ -2,9 +2,8 @@
 <html lang = "en">
     <head>
         <title>Covid Center Website</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-
-
     <body>
         <header>
             <h1>Welcome to Covid Assessment Website</h1>
@@ -13,58 +12,92 @@
             <h2>Please fill out this form</h2>
             <article>
                 <form>
-                    <fieldset>
-                        <legend> Part 1: </legend>
-                        <p>
-                            <label for ="txtFirstname">
-                                <space>First Name: </space>
-                                <strong><abbr title="required">*</abbr></strong>
+                    <fieldset class="border">
+                        <legend class="w-auto"> Part 1: Patient Information </legend>
+                        <div class="form-group row">
+                            <div class ="col-sm-2">
+                            <label for ="txtFirstname" class="col-form-label"> 
+                                <span>First Name: </span>
                             </label>
-                            <input type="text" id="txtFirstname" name="txtFirstname" required>
-                        </p>
-                        <p>
-                            <label for="txtLastname">
-                            <space>Last Name: </space>
-                            <strong><abbr title="required">*</abbr></strong>
-                            </label>
-                            <input type="text" id="txtLastname" name="txtLastname" required>
-                        </p>
-
-                        <fieldset>
-                            <legend>Gender: </legend>
-                            <input type="radio" id="rbMale" name="gender" value="male">
-                            <label for="rbMale">Male</label>
-
-                            <input type="radio" id=rbFemale name="gender" value="female">
-                            <label for="rbFemale">Female</label>
-
-                            <input type="radio" id=rbOther name="gender" value="other">
-                            <label for="rbOther">Other</label>
+                        </div> 
+                        <div class="col-sm-10">
+                                <input type="text" id="txtFirstname" name="txtFirstname" required class= "form-control" placeholder="First Name" required>
+                        </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2">
+                                <label for="txtLastname" class="col-form-label">
+                                    <span>Last Name: </span>
+                                </label>
+                            </div>
+                            <div class="col-sm-10">
+                                <input type="text" id="txtLastname" name="txtLastname" required class= "form-control" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                        
+                        <fieldset class="border form-group">
+                            <div class="row">
+                                <legend class="col-sm-2 col-form-label">Gender: </legend>
+                                <div class="col-sm-10">
+                                    <div class="form-check">
+                                        <input type="radio" id="rbMale" name="gender" value="male" class="form-check-input">
+                                        <label for="rbMale" class="form-check-label">Male</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id=rbFemale name="gender" value="female" class="form-check-input">
+                                        <label for="rbFemale" class="form-check-label">Female</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" id=rbOther name="gender" value="other" class="form-check-input">
+                                        <label for="rbOther"class="form-check-label">Other</label>
+                                    </div>
+                                </div>
+                            </div>
                         </fieldset>
 
-                    <p>
-                        <label for="txtTel">
-                            <spam>Telephone: </spam>
+                    <div class = "row form-group">
+                        <label for="txtTel" class ="col-sm-2 col-form-label">
+                            Telephone:
                         </label>
-                        <input type="tel" id="txtTel" name="txtTel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
-                    </p>
-                    <p>
-                            <label for="txtEmail">Email:
+                        <div class="col-sm-10">
+                        <input type="tel" id="txtTel" name="txtTel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" placeholder="555-555-5555">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                            <label for="txtEmail" class="col-sm-2 col-form-label">
+                                Email:
                                 <strong><abbr title="required"></abbr></string>
                             </label>
-                            <input type="email" id="txtemail name=" required>
-                    </p>
-                    <p>
-                            <label for="txtAddress">Address:</label>
-                            <input type="text" id="txtAddress" name="txtAddress">
-                    </p>
-                    <p>
-                            <label for="txtDoB">
-                                <spam>Date of birth: </spam>
+                            <div class="col-sm-10">
+                                <input type="email" id="txtemail name=" required class="form-control" placeholder="name@example.com">
+                            </div>
+                    </div>
+                    <div class="row form-group">
+                            <label for="txtAddress" class="col-sm-2 col-form-label">
+                                Address:
+                                </label>
+                            <div class="col-md-12 col-lg-6">
+                                <input type="text" id="txtAddress" name="txtAddress" class="form-control" placeholder="Street">
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <input type="text" id="txtCity" name="txtCity" class="form-control" placeholder="City">
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <input type="text" id="txtState" name="txtState" class="form-control" placeholder="State">
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                <input type="text" id="txtZipcode" name="txtZipcode" class="form-control" placeholder="Zipcode">
+                            </div>
+                    </div>
+                    <div class="row form-group"> 
+                            <label for="txtDoB" class="col-sm-2 col-fprm-label">
+                                Date of birth: 
                                 <strong><abbr title="required">*</abbr></strong>
                             </label>
-                            <input type="date" id="txtDoB" name="txtDoB" required>
-                    </p>
+                        <div class="col-sm-2">
+                            <input type="date" id="txtDoB" name="txtDoB" required class="form-control" placeholder="Date of Birth">
+                        </div>
+                    </div>
                     <p>
                         <button type="submit">Submit</button>
                     </p>
@@ -73,81 +106,85 @@
 
                     <fieldset>
                         <legend>PArt2: Potential Symptoms</legend>
-                        <h3>Please if you've had any of these symptoms, select yes.</h3>
-
-                        <p>
-                            <label for="ddFever">
-                                <span>Fever or chills:</span>
-                                <strong><abbr title=required>*</abbr></strong>
+                        <div class="alert-primary">
+                            <h3> If you've had any of these symptoms,please select yes.</h3>
+                        </div>
+                        <div class="row form-group">
+                            <label for="ddFever" class="col-sm-2 col-form-label">
+                                Fever or chills:
                             </label>
-                            <select id="ddFever" name="ddFever">
+                        <div>
+                            <select id="ddFever" name="ddFever" class="form-control">
                                 <option value="No" selected>No</option>
-                                <option value="Yes"></option>
+                                <option value="Yes">Yes</option>
                             </select>
-                        </p>
+                        </div>
+                    </div>
 
-                        <p>
-                                <label for="ddCough">
-                                    <span>Cough:</span>
-                                    <strong><abbr title=required>*</abbr></strong>
+                        <div>
+                                <label for="ddCough" class="col-sm-2 col-form-label" >
+                                       Cough:
+                                
                                 </label>
-                                <select id="ddCough" name="ddCough">
+                                <select id="ddCough" name="ddCough" class="form-control">
                                     <option value="No" selected>No</option>
-                                    <option value="Yes"></option>
+                                    <option value="Yes">Yes</option>
                                 </select>
-                            </p>
+                            </div>
                     </fieldset>
 
                     <fieldset>
                         <legend> Part 3: Other Questions</legend>
-                        <p>
-                            <label for="ddContact">
-                                <span> Have you had contact(within 6 feet for > 15 minutes), or caring for 
+                        <div>
+                            <label for="ddContact" class="col-sm-2 col-form-label">
+                                Have you had contact(within 6 feet for > 15 minutes), or caring for 
                                     someone who is diagnosed with Covid-19 in the last 14 days and were not 
-                                    wearing proper protective equipment?</span>
-                                <strong><abbr title=required>*</abbr></strong>
+                                    wearing proper protective equipment?
+                                 
                                 <br>
                             </label>
 
-                            <select id= "ddContact" name="ddContact">
+                            <select id= "ddContact" name="ddContact" class="form-control">
                                 <option value="No" selected>No</option>
                                 <option vaue="Yes"> Yes</option>
                             </select>
-                        </p>
+                        </div>
                         <div>
-                            <label for="ddCountry">
-                                    <span> Have you travelled to any country in the last 14 days?</span>
-                                    <strong><abbr title=required>*</abbr></strong>
+                            <label for="ddCountry"class="col-sm-2 col-form-label">
+                                    Have you travelled to any country in the last 14 days?
+                            
                                     <br>
                                 </label>
     
-                                <select id= "ddCountry" name="ddCountry">
+                                <select id= "ddCountry" name="ddCountry" class="form-control">
                                     <option value="No" selected>No</option>
                                     <option vaue="Yes">Yes</option>
                                 </select>
                                 <br>
-                                <div></div>
-                                    <label for="txtCountry">
-                                        <span>Which countries?(separate with coma)</span>
-                                        <strong><abbr title=required>*</abbr></strong>
+                                <div>
+                                    <label for="txtCountry" ></label>
+                                       Which countries?(separate with coma)
                                     </label>
-                                    <input type="text" id="txtCountry" name="txtCountry" required>
+                                    <div class="col-md-12 col-lg-6">
+                                        <input type="text" id="txtCountry" name="txtCountry" required class="form-control" placeholder="USA,Spain">
+                                    </div>
                                 </div>
 
                         </div>
-                         <p>
+                        
+                        <div class="col-md-12 col-lg-6">
                             <label for="textTemp">
-                                <span>Current Temperature</span>
-                                <strong<abbr title="required">*</abbr></strong>
+                                Current Temperature
+                                
                             </label>
-                            <input type="text" id="txtTemp" name="txtTemp" required pattern=[0-9]>
-                        </p>
+                            <input type="text" id="txtTemp" name="txtTemp" required pattern=[0-9] class="form-control" placeholder="97.4">
+                        </div>
                                     
                     </fieldset>
 
                     <p>
-                        <button type="submit"> Submit</button>
-                        <button type="reset"> reset</button>
+                        <button type="submit" class="btn btn-primary"> Submit</button>
+                        <button type="reset" class="btn btn-secondary"> reset</button>
                     </p>
                 </form>
             </article>
