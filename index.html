@@ -3,15 +3,16 @@
     <head>
         <title>Covid Center Website</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href ="styles/styles.css">
     </head>
     <body>
         <header>
             <h1>Welcome to Covid Assessment Website</h1>
         </header>
         <section>
-            <h2>Please fill out this form</h2>
+            <h2 class="alert alert-info">Please fill out this form</h2>
             <article>
-                <form>
+                <form onsubmit="return validateForm()" id="mainForm" novalidate>
                     <fieldset class="border">
                         <legend class="w-auto"> Part 1: Patient Information </legend>
                         <div class="form-group row">
@@ -90,12 +91,12 @@
                             </div>
                     </div>
                     <div class="row form-group"> 
-                            <label for="txtDoB" class="col-sm-2 col-fprm-label">
-                                Date of birth: 
-                                <strong><abbr title="required">*</abbr></strong>
+                            <label for="txtDOB" class="col-sm-2 col-form-label">
+                                Date of birth:
                             </label>
-                        <div class="col-sm-2">
-                            <input type="date" id="txtDoB" name="txtDoB" required class="form-control" placeholder="Date of Birth">
+                        <div class="col-sm-10">
+                            <input type="date" id="txtDOB" name="txtDOB" required class="form-control" placeholder="MM/DD/YYYY">
+                            <div id= "divDoBError" class="col-sm-5 invisible hasError"></div>
                         </div>
                     </div>
                     <p>
@@ -105,7 +106,7 @@
                     </fieldset>
 
                     <fieldset>
-                        <legend>PArt2: Potential Symptoms</legend>
+                        <legend>Part2: Potential Symptoms</legend>
                         <div class="alert-primary">
                             <h3> If you've had any of these symptoms,please select yes.</h3>
                         </div>
@@ -121,62 +122,74 @@
                         </div>
                     </div>
 
-                        <div>
+                        <div class = "row form-group">
                                 <label for="ddCough" class="col-sm-2 col-form-label" >
                                        Cough:
-                                
                                 </label>
+                                <div>
                                 <select id="ddCough" name="ddCough" class="form-control">
                                     <option value="No" selected>No</option>
                                     <option value="Yes">Yes</option>
                                 </select>
+                                </div>
                             </div>
                     </fieldset>
 
                     <fieldset>
                         <legend> Part 3: Other Questions</legend>
-                        <div>
-                            <label for="ddContact" class="col-sm-2 col-form-label">
+                        <div class= 'row form-group'>
+                            <label for="ddContact" class="col-sm-4 col-form-label">
                                 Have you had contact(within 6 feet for > 15 minutes), or caring for 
                                     someone who is diagnosed with Covid-19 in the last 14 days and were not 
                                     wearing proper protective equipment?
                                  
                                 <br>
                             </label>
-
+                        
+                            <div>
                             <select id= "ddContact" name="ddContact" class="form-control">
                                 <option value="No" selected>No</option>
                                 <option vaue="Yes"> Yes</option>
                             </select>
+                            </div>
                         </div>
-                        <div>
+                        
+                        <div class= 'row form-group'>
                             <label for="ddCountry"class="col-sm-2 col-form-label">
                                     Have you travelled to any country in the last 14 days?
-                            
-                                    <br>
-                                </label>
-    
-                                <select id= "ddCountry" name="ddCountry" class="form-control">
+                            </label>
+                            <div class= "col-sm-4">
+                                <select id= "ddCountry" name="ddCountry" class="form-control" onchange="updateCountryView()">
                                     <option value="No" selected>No</option>
                                     <option vaue="Yes">Yes</option>
                                 </select>
-                                <br>
-                                <div>
-                                    <label for="txtCountry" ></label>
-                                       Which countries?(separate with coma)
-                                    </label>
-                                    <div class="col-md-12 col-lg-6">
-                                        <input type="text" id="txtCountry" name="txtCountry" required class="form-control" placeholder="USA,Spain">
-                                    </div>
                                 </div>
-
+                            </div>
+                            <div id="divCountry" class="row form-group invisible">
+                                <label for="txtCountry" class="col-sm-3">
+                                    Which countries?(separate with coma)
+                                </label>
+                            <div class="col-md-12 col-lg-6">
+                                    <input type="text" id="txtCountry" name="txtCountry" required class="form-control" placeholder="USA,Spain">
+                            </div>
                         </div>
+                        <div class= 'row form-group'>
+                            <label for="ddSocialize"class="col-sm-2 col-form-label">
+                                    Have you socialized witha group of 6 or more people in the last 14 days?
+                            </label>
+                            <div class= "col-sm-4">
+                                <select id= "ddSocialize" name="ddSocialize" class="form-control">
+                                    <option value="No" selected>No</option>
+                                    <option vaue="Yes">Yes</option>
+                                </select>
+                                </div>
+                            </div>
                         
                         <div class="col-md-12 col-lg-6">
-                            <label for="textTemp">
+                            <label for="textTemp" >
                                 Current Temperature
                                 
-                            </label>
+                            </label class="col-sm-2">
                             <input type="text" id="txtTemp" name="txtTemp" required pattern=[0-9] class="form-control" placeholder="97.4">
                         </div>
                                     
@@ -192,4 +205,6 @@
         <footer>
             Copyright @2021 Covid Center Website 
         </footer>
+
+        <script src="js/script.js"></script>
     </body>
